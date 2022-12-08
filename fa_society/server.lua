@@ -83,7 +83,7 @@ AddEventHandler("five_banque:retraitentreprise", function(money, job)
     TriggerEvent('esx_addonaccount:getSharedAccount', 'society_'..job, function (account)
         if account.money >= total then
             account.removeMoney(total)
-            xPlayer.addAccountMoney('money', total)
+            xPlayer.addtMoney(total)
             TriggerClientEvent('esx:showAdvancedNotification', source, 'Banque', 'Banque', "~g~Vous avez retiré "..total.." $ de votre entreprise", 'CHAR_BANK_FLEECA', 10)
         else
             TriggerClientEvent('esx:showNotification', source, "Vous n'avez pas assez d\'argent dans votre entreprise!")
@@ -103,7 +103,7 @@ AddEventHandler("five_banque:depotentreprise", function(money, job)
     TriggerEvent('esx_addonaccount:getSharedAccount', 'society_'..job, function (account)
         if xMoney >= total then
             account.addMoney(total)
-            xPlayer.removeAccountMoney('money', total)
+            xPlayer.removeMoney(total)
             TriggerClientEvent('esx:showAdvancedNotification', source, 'Banque', 'Banque', "~g~Vous avez déposé "..total.." $ dans votre entreprise", 'CHAR_BANK_FLEECA', 10)
         else
             TriggerClientEvent('esx:showNotification', source, "Vous n'avez pas assez d\'argent !")
